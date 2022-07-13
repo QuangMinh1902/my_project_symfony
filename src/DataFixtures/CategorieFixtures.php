@@ -20,5 +20,5 @@ class CategorieFixtures extends Fixture
         $second_categorie->setNombreProduits(330);
         $manager->persist($second_categorie);
         $manager->flush();
-    }
+    }   
 }
