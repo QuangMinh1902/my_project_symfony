@@ -12,12 +12,12 @@ class CategorieFixtures extends Fixture
     {
         $first_categorie = new Categories();
         $first_categorie->setNom("Bijoux");
-        $first_categorie->setNombreProduits(250);
+        $first_categorie->setNombreProduits(5);
         $manager->persist($first_categorie);
 
         $second_categorie = new Categories();
         $second_categorie->setNom("Electroménager");
-        $second_categorie->setNombreProduits(330);
+        $second_categorie->setNombreProduits(5);
         $manager->persist($second_categorie);
         $manager->flush();
     }   
