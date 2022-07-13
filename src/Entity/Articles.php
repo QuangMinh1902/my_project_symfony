@@ -35,17 +35,17 @@ class Articles
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private $create_at;
+    private $createAt;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $nombres_en_stock;
+    private $nombresEnStock;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $id_categorie;
+    private $idCategorie;
 
     public function getId(): ?int
     {
@@ -90,36 +90,36 @@ class Articles
 
     public function getCreateAt(): ?\DateTimeImmutable
     {
-        return $this->create_at;
+        return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeImmutable $create_at): self
+    public function setCreateAt(\DateTimeImmutable $createAt): self
     {
-        $this->create_at = $create_at;
+        $this->createAt = $createAt;
 
         return $this;
     }
 
     public function getNombresEnStock(): ?int
     {
-        return $this->nombres_en_stock;
+        return $this->nombresEnStock;
     }
 
-    public function setNombresEnStock(int $nombres_en_stock): self
+    public function setNombresEnStock(int $nombresEnStock): self
     {
-        $this->nombres_en_stock = $nombres_en_stock;
+        $this->nombresEnStock = $nombresEnStock;
 
         return $this;
     }
 
     public function getIdCategorie(): ?int
     {
-        return $this->id_categorie;
+        return $this->idCategorie;
     }
 
-    public function setIdCategorie(int $id_categorie): self
+    public function setIdCategorie(int $idCategorie): self
     {
-        $this->id_categorie = $id_categorie;
+        $this->idCategorie = $idCategorie;
 
         return $this;
     }

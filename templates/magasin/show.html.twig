@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Manager!
+{% endblock %}
+
+{% block body %}
+	<br>
+	<div class="container">
+
+		{% for article in articles %}
+			{% if loop.first %}
+				<table class="table table-bordered">
+					<tr>
+						<th>NOM</th>
+						<th>DESCRIPTION</th>
+						<th>PRIX</th>
+						<th>NOMBRE EN STOCK</th>
+						<th>CATEGOTIE</th>
+					</tr>
+				{% endif %}
+
+				<tr>
+					<td>
+						{{ article.nom|e }}
+					</td>
+					<td>
+						{{article.description|e }}
+					</td>
+					<td>
+						{{article.prix|e }}
+					</td>
+					<td>
+						{{article.nombresEnStock|e }}
+					</td>
+					<td>
+						{{article.idCategorie|e }}
+					</td>
+				</tr>
+				{% if loop.last %}
+				</table>
+			{% endif %}
+
+		{% else %}
+			<p>
+				<b>
+					no article found
+				</b>
+			</p>
+		{% endfor %}
+	</div>
+
+{% endblock %}
