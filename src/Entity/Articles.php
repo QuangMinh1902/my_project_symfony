@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArticlesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticlesRepository::class)
@@ -19,16 +20,19 @@ class Articles
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=255)
      */
     private $nom;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min=3, max=255)
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $prix;
 
@@ -39,11 +43,13 @@ class Articles
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $nombresEnStock;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $idCategorie;
 
