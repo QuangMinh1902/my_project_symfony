@@ -20,29 +20,35 @@ class ArticleType extends AbstractType
             ->add('nom', TextType::class, [
                 "attr" => [
                     'class' => 'form-control',
+                    'placeholder' => "Nom de nouvel article"
                 ],
                 "required" => true,
             ])
             ->add('description', TextareaType::class, [
                 "attr" => [
-                    'class' => 'form-control'
-                ]
+                    'class' => 'form-control',
+                    'placeholder' => "Décrire le nouvel article "
+                ],
+                "required" => true,
             ])
             ->add('prix', NumberType::class, [
                 "attr" => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Le prix de nouvel article"
                 ],
                 "required" => true,
             ])
             ->add('nombresEnStock', NumberType::class, [
                 "attr" => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Nombres de cet article dans le stock"
                 ],
                 "required" => true,
             ])
             ->add('idCategorie', NumberType::class, [
                 "attr" => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'placeholder' => "Catégorie à laquelle cet article appartient"
                 ],
                 "required" => true,
             ]);

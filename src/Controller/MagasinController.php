@@ -31,10 +31,20 @@ class MagasinController extends AbstractController
     /**
      * @Route("/magasin/new", name="create_article")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ManagerRegistry $doctrine): Response
     {
         $article = new Articles();
-        $form = $this->createForm(ArticleType::class);
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$article->getId()) {
+                $article->setCreateAt(new \DateTimeImmutable());
+            }
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($article);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_magasin');
+        }
         return $this->render('magasin/create.html.twig', [
             'form' => $form->createView(),
         ]);

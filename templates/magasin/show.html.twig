@@ -5,7 +5,12 @@
 
 {% block body %}
 	<br>
+
+	<a href={{path("create_article")}} class="btn btn-info">Créer un nouvel article</a>
+
+
 	<div class="container">
+		<br>
 
 		{% for article in articles %}
 			{% if loop.first %}
