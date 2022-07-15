@@ -75,6 +75,9 @@ class MagasinController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute("app_magasin");
     }
+
+    
+    
 }
 
 
