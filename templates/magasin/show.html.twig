@@ -21,6 +21,7 @@
 						<th>PRIX</th>
 						<th>NOMBRE EN STOCK</th>
 						<th>CATEGOTIE</th>
+						<th>MODIFIER</th>
 					</tr>
 				{% endif %}
 
@@ -39,6 +40,9 @@
 					</td>
 					<td>
 						{{article.idCategorie|e }}
+					</td>
+					<td>
+						{# <a href={{path("create_article")}} class="btn btn-info">Créer un nouvel article</a> #}
 					</td>
 				</tr>
 				{% if loop.last %}

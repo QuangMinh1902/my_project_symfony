@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}>Création d'un article
+{% block title %}>Modification d'article
 {% endblock %}
 
 
 {% block body %}
-	<h1>Ajouter un article
+	<h1>Modifier l'article
 	</h1>
 
 	{{ form_start(form) }}
 
 	{{ include 'magasin/form.html.twig' }}
 
-	<button class="btn btn-primary">Ajouter</button>
+	<button class="btn btn-primary">Modifier</button>
 
 	{{ form_end(form) }}
 {% endblock %}
