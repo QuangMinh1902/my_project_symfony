@@ -47,12 +47,6 @@ class Articles
      */
     private $nombresEnStock;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @Assert\Positive
-     */
-    private $idCategorie;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -118,15 +112,4 @@ class Articles
         return $this;
     }
 
-    public function getIdCategorie(): ?int
-    {
-        return $this->idCategorie;
-    }
-
-    public function setIdCategorie(int $idCategorie): self
-    {
-        $this->idCategorie = $idCategorie;
-
-        return $this;
-    }
 }

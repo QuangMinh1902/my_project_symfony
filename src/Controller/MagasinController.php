@@ -76,3 +76,5 @@ class MagasinController extends AbstractController
         return $this->redirectToRoute("app_magasin");
     }
 }
+
+

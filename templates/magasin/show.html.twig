@@ -20,7 +20,7 @@
 						<th>DESCRIPTION</th>
 						<th>PRIX</th>
 						<th>NOMBRE EN STOCK</th>
-						<th>CATEGOTIE</th>
+						{# <th>CATEGOTIE</th> #}
 						<th>MODIFIER</th>
 						<th>SUPPRIMIER</th>
 					</tr>
@@ -40,9 +40,9 @@
 					<td>
 						{{article.nombresEnStock|e }}
 					</td>
-					<td>
+					{# <td>
 						{{article.idCategorie|e }}
-					</td>
+					</td> #}
 					<td>
 						<a href={{path("edit_article",{id:article.id} )}} class="btn btn-primary">Modifier</a>
 					</td>
