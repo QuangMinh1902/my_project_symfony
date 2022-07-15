@@ -51,8 +51,12 @@ class MagasinController extends AbstractController
     /**
      * @Route("/magasin/article/edit/{id}", name="edit_article")
      */
-    public function edit()
+    public function edit(Articles $article, Request $request)
     {
-        
+        $form = $this->createForm(Articles::class, $article);
+        $form->handleRequest($request);
+        return $this->render('magasin/edit.html.twig', [
+            "form"=>$form->createView(),
+        ]);
     }
 }
