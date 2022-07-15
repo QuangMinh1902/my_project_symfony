@@ -31,10 +31,11 @@
 						{{ article.nom|e }}
 					</td>
 					<td>
-						{{article.description|e }} 
+						{{article.description|e }}
 					</td>
 					<td>
-						{{article.prix|e }} €
+						{{article.prix|e }}
+						€
 					</td>
 					<td>
 						{{article.nombresEnStock|e }}
@@ -46,7 +47,8 @@
 						<a href={{path("edit_article",{id:article.id} )}} class="btn btn-primary">Modifier</a>
 					</td>
 					<td>
-					Supprimer
+						<a href={{path("delete_article",{id:article.id} )}} class="btn btn-danger" onclick="return confirm('êtes-vous sur ?')">
+						Supprimer</a>
 					</td>
 				</tr>
 				{% if loop.last %}

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -64,5 +63,16 @@ class MagasinController extends AbstractController
         return $this->render('magasin/edit.html.twig', [
             "form" => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("magasin/article/delete/{id}", name="delete_article")
+     */
+    public function delete(Articles $article, ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+        $entityManager->remove($article);
+        $entityManager->flush();
+        return $this->redirectToRoute("app_magasin");
     }
 }
