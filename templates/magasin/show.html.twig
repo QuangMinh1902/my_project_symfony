@@ -42,7 +42,7 @@
 						{{article.idCategorie|e }}
 					</td>
 					<td>
-						{# <a href={{path("create_article")}} class="btn btn-info">Créer un nouvel article</a> #}
+						<a href={{path("edit_article",{id:article.id} )}} class="btn btn-info">Modifier</a>
 					</td>
 				</tr>
 				{% if loop.last %}

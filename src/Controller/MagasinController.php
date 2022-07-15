@@ -53,7 +53,7 @@ class MagasinController extends AbstractController
      */
     public function edit(Articles $article, Request $request)
     {
-        $form = $this->createForm(Articles::class, $article);
+        $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
         return $this->render('magasin/edit.html.twig', [
             "form"=>$form->createView(),
