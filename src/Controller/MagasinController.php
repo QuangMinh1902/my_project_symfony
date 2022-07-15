@@ -60,9 +60,15 @@ class MagasinController extends AbstractController
      */
     public function edit(Articles $article, Request $request, ManagerRegistry $doctrine)
     {
+        $repository = $doctrine->getRepository(Categories::class);
+        $categories = $repository->findAll();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $str_id =  $request->request->get('categorie');
+            $id_category = intval($str_id);
+            $categorie = $repository->find($id_category);
+            $categorie->addArticle($article);
             $entityManager = $doctrine->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
@@ -70,6 +76,7 @@ class MagasinController extends AbstractController
         }
         return $this->render('magasin/edit.html.twig', [
             "form" => $form->createView(),
+            'categories' => $categories
         ]);
     }
 
