@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}>Afficher les stocks
+{% endblock %}
+
+
+{% block body %}
+	<br>
+
+	<a href={{path("app_magasin")}} class="btn btn-warning">Magasin</a>
+
+	<br>
+
+	<h1>Afficher les stocks
+	</h1>
+
+
+	<form method="post" action="">
+		<label for="category">Choisissez une catégorie :</label>
+		<select name="categorie">
+			{% for categorie in categories %}
+				<option value={{ categorie.getId() }}>
+					{{ categorie.getNom() }}
+				</option>
+			{% endfor %}
+		</select>
+		<button class="btn btn-primary">Afficher</button>
+	</form>
+
+
+	{% if articles %}
+		{% for article in articles %}
+			{% if loop.first %}
+				<table class="table table-bordered">
+					<tr>
+						<th>NOM</th>
+						<th>DESCRIPTION</th>
+						<th>PRIX</th>
+						<th>NOMBRE EN STOCK</th>
+					</tr>
+				{% endif %}
+
+				<tr>
+					<td>
+						{{ article.nom|e }}
+					</td>
+					<td>
+						{{article.description|e }}
+					</td>
+					<td>
+						{{article.prix|e }}
+						€
+					</td>
+					<td>
+						{{article.nombresEnStock|e }}
+					</td>
+				</tr>
+				{% if loop.last %}
+				</table>
+			{% endif %}
+
+			{% else %}
+
+		{% endfor %}
+	{% endif %}
+
+
+{% endblock %}

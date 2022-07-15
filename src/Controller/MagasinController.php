@@ -90,4 +90,22 @@ class MagasinController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute("app_magasin");
     }
+
+    /**
+     * @Route("magasin/categorie/stocks",name="show_stocks")
+     */
+    public function show_stock(ManagerRegistry $doctrine, Request $request, Articles $articles = null)
+    {
+        $repository = $doctrine->getRepository(Categories::class);
+        $categories = $repository->findAll();
+        if ($request->request->get('categorie')) {
+            $id_category = intval($request->request->get('categorie'));
+            $categorie = $repository->find($id_category);
+            $articles = $categorie->getArticles();
+        }
+        return $this->render('magasin/show_stock.html.twig', [
+            'categories' => $categories,
+            'articles' => $articles
+        ]);
+    }
 }
