@@ -47,6 +47,12 @@ class Articles
      */
     private $nombresEnStock;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,6 +114,18 @@ class Articles
     public function setNombresEnStock(int $nombresEnStock): self
     {
         $this->nombresEnStock = $nombresEnStock;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categories
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categories $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
