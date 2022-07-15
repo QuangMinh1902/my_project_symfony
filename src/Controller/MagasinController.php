@@ -47,4 +47,12 @@ class MagasinController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/magasin/article/edit/{id}", name="edit_article")
+     */
+    public function edit()
+    {
+        
+    }
 }
