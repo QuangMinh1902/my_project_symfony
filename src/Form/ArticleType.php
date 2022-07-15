@@ -44,14 +44,14 @@ class ArticleType extends AbstractType
                     'placeholder' => "Nombres de cet article dans le stock"
                 ],
                 "required" => true,
-            ])
-            ->add('idCategorie', NumberType::class, [
-                "attr" => [
-                    'class' => 'form-control',
-                    'placeholder' => "Catégorie à laquelle cet article appartient"
-                ],
-                "required" => true,
             ]);
+        // ->add('categorie', NumberType::class, [
+        //     "attr" => [
+        //         'class' => 'form-control',
+        //         'placeholder' => "Catégorie à laquelle cet article appartient",
+        //     ],
+        //     "required" => true,
+        // ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

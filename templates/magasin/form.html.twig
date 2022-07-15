@@ -14,6 +14,13 @@
 	{{ form_row(form.nombresEnStock)  }}
 </div>
 
-{# <div class="form-group ">
-	{{ form_row(form.idCategorie)  }}
-</div> #}
+<div class="form-group ">
+	<label for="category">Choisissez une catégorie :</label>
+	<select name="categorie">
+		{% for categorie in categories %}
+			<option value={{ categorie.getId() }}>
+				{{ categorie.getNom() }}
+			</option>
+		{% endfor %}
+	</select>
+</div>
