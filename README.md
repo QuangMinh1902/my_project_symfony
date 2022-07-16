@@ -1,4 +1,4 @@
-
+- Les commands doient être exécutés avant le test
 
 # composer install 
 # php bin/console doctrine:database:create
