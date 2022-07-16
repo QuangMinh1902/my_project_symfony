@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
         $plaintextPassword = "admin";
         $admin1 = new User();
         $admin1->setEmail('admin1@gmail.com');
-        $hashedPassword =$this->passwordHasher->hashPassword(
+        $hashedPassword = $this->passwordHasher->hashPassword(
             $admin1,
             $plaintextPassword
         );
@@ -29,7 +29,7 @@ class UserFixtures extends Fixture
         $admin1->setRoles(['ROLE_ADMIN']);
         $admin2 = new User();
         $admin2->setEmail('admin2@gmail.com');
-        $hashedPassword =$this->passwordHasher->hashPassword(
+        $hashedPassword = $this->passwordHasher->hashPassword(
             $admin2,
             $plaintextPassword
         );
@@ -37,17 +37,6 @@ class UserFixtures extends Fixture
         $admin2->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin1);
         $manager->persist($admin2);
-        $plaintextPassword = "user";
-        for ($i = 1; $i <= 5; $i++) {
-            $user = new User();
-            $user->setEmail("user$i@gmail.com");
-            $hashedPassword = $this->passwordHasher->hashPassword(
-                $user,
-                $plaintextPassword
-            );
-            $user->setPassword($hashedPassword);
-            $manager->persist($user);
-        }
         $manager->flush();
     }
 }
