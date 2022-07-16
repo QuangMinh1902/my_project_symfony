@@ -5,12 +5,31 @@
 
 
 {% block body %}
-	<br>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href={{path("app_magasin")}} class="navbar-brand">MagasinApp</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li>
+					<a href={{path("create_article")}}>Créer un nouvel article</a>
+				</li>
+				<li>
+					<a href={{path("show_stocks")}}>Afficher par catégorie</a>
+				</li>
+			</ul>
 
-	<a href={{path("app_magasin")}} class="btn btn-warning">Magasin</a>
-
-	<br>
-
+			{% if app.user %}
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href={{ path('app_logout') }}>
+							<span class="glyphicon glyphicon-log-in"></span>
+							Déconnection</a>
+					</li>
+				</ul>
+			{% endif %}
+		</div>
+	</nav>
 	<h1>Afficher les stocks
 	</h1>
 

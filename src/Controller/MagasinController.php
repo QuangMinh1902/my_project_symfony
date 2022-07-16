@@ -10,11 +10,13 @@ use App\Entity\Articles;
 use App\Entity\Categories;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ArticleType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MagasinController extends AbstractController
 {
     /**
      * @Route("/magasin", name="app_magasin")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function showArticles(ManagerRegistry $doctrine)
     {
@@ -28,6 +30,7 @@ class MagasinController extends AbstractController
 
     /**
      * @Route("/magasin/new", name="create_article")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, ManagerRegistry $doctrine): Response
     {
@@ -57,6 +60,7 @@ class MagasinController extends AbstractController
 
     /**
      * @Route("/magasin/article/edit/{id}", name="edit_article")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Articles $article, Request $request, ManagerRegistry $doctrine)
     {
@@ -82,6 +86,7 @@ class MagasinController extends AbstractController
 
     /**
      * @Route("magasin/article/delete/{id}", name="delete_article")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Articles $article, ManagerRegistry $doctrine)
     {
@@ -93,6 +98,7 @@ class MagasinController extends AbstractController
 
     /**
      * @Route("magasin/categorie/stocks",name="show_stocks")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show_stock(ManagerRegistry $doctrine, Request $request, Articles $articles = null)
     {
