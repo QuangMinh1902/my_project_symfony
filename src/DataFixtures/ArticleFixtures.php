@@ -29,7 +29,7 @@ class ArticleFixtures extends Fixture
                 $article->setCategorie($first_category);
                 $article->setCreateAt(new \DateTimeImmutable());
             } else {
-                $article->setNom("Balace électronique n° $i");
+                $article->setNom("Balance électronique n° $i");
                 $article->setDescription("Description de la balance n° $i");
                 $article->setPrix($i * 11);
                 $article->setNombresEnStock($i);
